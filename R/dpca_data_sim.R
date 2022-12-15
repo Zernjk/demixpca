@@ -47,8 +47,9 @@ dpca_data_sim <- function(N=50, n_samples=10, noise=0.2, pars_lst, save=TRUE, fi
   rmf = rowMeans(dpca_flat2d(rr))
   
   R = rr - array(rep(rmf, 1, each = prod(pars_lst)), dim=c(pars_lst, N))
+  print("Data Dimension: ")
   print(dim(R))
-  if (save) saveRDS(R, file_name)
+  if (save) saveRDS(R, 'simR.rds')
   
   return(R)
   
