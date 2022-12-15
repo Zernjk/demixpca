@@ -22,7 +22,7 @@ dpca_fit_transform <- function(X, regularizer = 0, label, method='rsvd',
   re_transform = dpca_transform(X = X, marginalizations = marginalizations, P=re_fit$P, F=re_fit$F)
 
   if(plot & dim_len %in% c(3,4)){
-    plot_component(X = X, re_transform = re_transform, k_component = 1, plot_margin = plot_margin,
+    dpca_plot_component(X = X, re_transform = re_transform, k_component = 1, plot_margin = plot_margin,
                    ylim = ylim)
   }
 
