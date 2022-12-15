@@ -17,7 +17,7 @@ dpca_fit_transform <- function(X, regularizer = 0, label, method='rsvd',
   label_lst = as.list(strsplit(label, "")[[1]])
   dim_len = length(dim(X))
 
-  re_fit = fit(X = X, regularizer = regularizer, method = method, label_lst=label_lst)
+  re_fit = dpca_fit(X = X, regularizer = regularizer, method = method, label_lst=label_lst)
   marginalizations = names(re_fit$P)
   re_transform = dpca_transform(X = X, marginalizations = marginalizations, P=re_fit$P, F=re_fit$F)
 
