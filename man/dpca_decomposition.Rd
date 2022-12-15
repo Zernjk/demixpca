@@ -4,7 +4,7 @@
 \alias{dpca_decomposition}
 \title{Doing the decomposition of matrix with different methods}
 \usage{
-dpca_decomposition(flatX, mXs, pinvX, n_components = 10, method = "rsvd")
+dpca_decomposition(flatX, mXs, pinvX, n_components = 5, method = "rsvd")
 }
 \arguments{
 \item{flatX}{A 2D matrix flattened from a high dimensional array. Dim = c(num_neuron, num_features).}
@@ -13,7 +13,7 @@ dpca_decomposition(flatX, mXs, pinvX, n_components = 10, method = "rsvd")
 
 \item{pinvX}{Inverse of the flatX matrix}
 
-\item{n_components}{The number of components required. Default=10.}
+\item{n_components}{The number of components required. Default=5.}
 
 \item{method}{The method chose for decomposition. 'rsvd': Randomized SVD, 'svd': SVD, 'qr': QR decomposition. Default='rsvd'.}
 }

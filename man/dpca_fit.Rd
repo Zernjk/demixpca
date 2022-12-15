@@ -4,12 +4,12 @@
 \alias{dpca_fit}
 \title{A function to fit the high dimensional data (neural population data) via Demixed PCA.}
 \usage{
-dpca_fit(X, n_components = 10, regularizer = 0, method = "rsvd", label_lst)
+dpca_fit(X, n_components = 5, regularizer = 0, method = "rsvd", label_lst)
 }
 \arguments{
 \item{X}{An array, dim=c(n_neurons, n_features_1, n_features_2, ...), where n_samples in the number of neurons and n_features_j is the number of the j-features (where the axis correspond to different parameters).}
 
-\item{n_components}{The number of components required. Defult=10.}
+\item{n_components}{The number of components required. Defult=5.}
 
 \item{regularizer}{The coefficient for the Ridge regularization. A non-negative number. Defult to be 0, no regularization.}
 

@@ -9,6 +9,7 @@ dpca_fit_transform(
   regularizer = 0,
   label,
   method = "rsvd",
+  n_components = 5,
   plot = FALSE,
   plot_margin = "s",
   k_component = 1,
@@ -23,6 +24,8 @@ dpca_fit_transform(
 \item{label}{A string presenting the task parameters. The order of element in the string should consistent with the dimension of the array data. 'ts': time and stimulus, 'dts': decision, time and stimulus, etc.}
 
 \item{method}{The method chose for decomposition. 'rsvd': Randomized SVD, 'svd': SVD, 'qr': QR decomposition. Default='rsvd'.}
+
+\item{n_components}{The number of components required. Default=5.}
 
 \item{plot}{A bool parameter, whether to plot the components on margins. Default to be FALSE. Can handle neural population data with 3 or 4 task parameters.}
 

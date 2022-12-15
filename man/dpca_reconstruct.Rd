@@ -4,10 +4,19 @@
 \alias{dpca_reconstruct}
 \title{Reconstruct the data: Transform data first into reduced space before projecting it back into data space.}
 \usage{
-dpca_reconstruct(X, margin_on, label, regularizer = 0, method = "rsvd")
+dpca_reconstruct(
+  X,
+  n_components = 5,
+  margin_on,
+  label,
+  regularizer = 0,
+  method = "rsvd"
+)
 }
 \arguments{
 \item{X}{An array, dim=c(n_neurons, n_features_1, n_features_2, ...), where n_samples in the number of neurons and n_features_j is the number of the j-features (where the axis correspond to different parameters).}
+
+\item{n_components}{The number of components required. Defult=5.}
 
 \item{margin_on}{A string presenting the margin (task parameter) to be inversed transformed on.}
 
