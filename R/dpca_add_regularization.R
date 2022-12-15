@@ -9,7 +9,7 @@
 
 dpca_add_regularization <- function(Y,mYs,lam){
   N = dim(Y)[length(dim(Y))]
-  flatY = flat2d(Y)
+  flatY = dpca_flat2d(Y)
   regY = cbind(flatY, lam*diag(N))
   
   regmYs = list()
