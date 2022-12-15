@@ -11,6 +11,8 @@ library(devtools)
 devtools::install_github("jhgoblue/demixpca")
 ```
 ## Getting Started
+The package **rsvd** and **pracma** are also required while using the **demixpca**. 
+
 There is a simulated data included in the package, which you can load using the command:
 ```
 # To generate a simulate data with 50 sample neurons, 200 time parameters and 4 stimulus parameters. 
@@ -22,6 +24,10 @@ How to visualize the first demixed principle component on the stimulus task para
 ```
 # Consistent with label="ts"
 demixpca::dpca_fit_transform(simulated_data, label = 'ts', plot=TRUE, plot_margin = 's')
+```
+Use **help()** to check detailed description and usage for functions built in **dpca** package: 
+```
+help('dpca_fit_transform')
 ```
 
 ## Reference
