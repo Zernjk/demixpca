@@ -25,7 +25,7 @@ How to fit, transform, and visualize the first demixed principle component on th
 # pars_lst should be consistent with label="ts"
 demixpca::dpca_fit_transform(simulated_data, label = 'ts', plot=TRUE, plot_margin = 's')
 ```
-The return of `dpca_fit_transform()` is a list containing flatten matrices, for user to choose component or plot easily. One can use `dim()` to transform the martices into the shape of multiple dimensional array (n_feature1, n_feature2, ..., n_components).  
+The return of `dpca_fit_transform()` is a list containing flatten matrices, for user to select component easily. One can use `dim()` to transform the martices into the shape of multiple dimensional array (n_feature1, n_feature2, ..., n_components).  
 Use **help()** to check detailed description and usage for functions built in **demixpca** package: 
 ```
 help('dpca_fit_transform')
