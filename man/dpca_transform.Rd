@@ -7,7 +7,7 @@
 dpca_transform(X, marginalizations, P, F)
 }
 \arguments{
-\item{X}{An array, dim=c(n_neurons, n_features_1, n_features_2, ...), where n_samples in the number of neurons and n_features_j is the number of the j-features (where the axis correspond to different parameters).}
+\item{X}{An array, dim=c(n_features_1, n_features_2, ..., n_neurons), where n_features_j is the number of the j-features (where the axis correspond to different parameters).}
 
 \item{marginalizations}{String or None. Marginalization subspace upon which to project, if None return dict with projections on all marginalizations.}
 

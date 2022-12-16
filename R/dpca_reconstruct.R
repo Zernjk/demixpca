@@ -1,13 +1,13 @@
 #' Reconstruct the data: Transform data first into reduced space before projecting it back into data space.
 #'
-#' @param X An array, dim=c(n_neurons, n_features_1, n_features_2, ...), where n_samples in the number of neurons and n_features_j is the number of the j-features (where the axis correspond to different parameters).
-#' @param n_components The number of components required. Defult=5.
+#' @param X An array, dim=c(n_features_1, n_features_2, ..., n_neurons), where n_features_j is the number of the j-features (where the axis correspond to different parameters).
+#' @param n_components The number of components required. Default=5.
 #' @param margin_on A string presenting the margin (task parameter) to be inversed transformed on.
 #' @param label A string presenting the task parameters. The order of element in the string should consistent with the dimension of the array data. 'ts': time and stimulus, 'dts': decision, time and stimulus, etc.
-#' @param regularizer The coefficient for the Ridge regularization. A non-negative number. Deault to be 0, no regularization.
+#' @param regularizer The coefficient for the Ridge regularization. A non-negative number. Default to be 0, no regularization.
 #' @param method The method chose for decomposition. 'rsvd': Randomized SVD, 'svd': SVD, 'qr': QR decomposition. Default='rsvd'.
 #'
-#' @return An array with the same shape as the original data.
+#' @return An array with the same shape as the original data, but only n_components.
 
 dpca_reconstruct <- function(X, n_components=5, margin_on, label, regularizer = 0, method='rsvd'){
   # X: origin data

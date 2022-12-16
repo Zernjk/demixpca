@@ -8,7 +8,7 @@ Utilized in `dpca_fit()` and `dpca_fit_transform()`.}
 dpca_add_regularization(Y, mYs, lam)
 }
 \arguments{
-\item{Y}{An array, dim=c(n_neurons, n_features_1, n_features_2, ...), where n_samples in the number of neurons and n_features_j is the number of the j-features (where the axis correspond to different parameters).}
+\item{Y}{An array, dim=c(n_features_1, n_features_2, ..., n_neurons), where n_features_j is the number of the j-features (where the axis correspond to different parameters).}
 
 \item{mYs}{List with values in the shape of flattened Y. Marginalized data, should be the result of dpca_marginalize().}
 

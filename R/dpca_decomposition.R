@@ -1,6 +1,6 @@
 #' Doing the decomposition of matrix with different methods
 #'
-#' @param flatX A 2D matrix flattened from a high dimensional array. Dim = c(num_neuron, num_features).
+#' @param flatX A 2D matrix flattened from a high dimensional array. Dim = c(n_neurons, n_features).
 #' @param mXs List with values in the shape of flatX. Marginalized data, should be the result of dpca_marginalize()
 #' @param pinvX Inverse of the flatX matrix
 #' @param n_components The number of components required. Default=5.

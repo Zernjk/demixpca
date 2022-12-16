@@ -1,6 +1,6 @@
 #' A function to fit the high dimensional data (neural population data) via Demixed PCA.
 #'
-#' @param X An array, dim=c(n_neurons, n_features_1, n_features_2, ...), where n_samples in the number of neurons and n_features_j is the number of the j-features (where the axis correspond to different parameters).
+#' @param X An array, dim=c(n_features_1, n_features_2, ..., n_neurons), where n_features_j is the number of the j-features (where the axis correspond to different parameters).
 #' @param n_components The number of components required. Defult=5.
 #' @param regularizer The coefficient for the Ridge regularization. A non-negative number. Defult to be 0, no regularization.
 #' @param method The method chose for decomposition. 'rsvd': Randomized SVD, 'svd': SVD, 'qr': QR decomposition. Defult='rsvd'.

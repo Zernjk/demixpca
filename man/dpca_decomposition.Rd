@@ -7,7 +7,7 @@
 dpca_decomposition(flatX, mXs, pinvX, n_components = 5, method = "rsvd")
 }
 \arguments{
-\item{flatX}{A 2D matrix flattened from a high dimensional array. Dim = c(num_neuron, num_features).}
+\item{flatX}{A 2D matrix flattened from a high dimensional array. Dim = c(n_neurons, n_features).}
 
 \item{mXs}{List with values in the shape of flatX. Marginalized data, should be the result of dpca_marginalize()}
 

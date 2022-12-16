@@ -1,7 +1,7 @@
 #' A function to add regularization in the Demixed PCA
 #' Utilized in `dpca_fit()` and `dpca_fit_transform()`.
 #'
-#' @param Y An array, dim=c(n_neurons, n_features_1, n_features_2, ...), where n_samples in the number of neurons and n_features_j is the number of the j-features (where the axis correspond to different parameters).
+#' @param Y An array, dim=c(n_features_1, n_features_2, ..., n_neurons), where n_features_j is the number of the j-features (where the axis correspond to different parameters).
 #' @param mYs List with values in the shape of flattened Y. Marginalized data, should be the result of dpca_marginalize().
 #' @param lam The coefficient for the Ridge regularization. A non-negative number. lam equal to the product of regularizer and l2 norm of the data.
 #'

@@ -12,12 +12,11 @@ dpca_fit_transform(
   n_components = 5,
   plot = FALSE,
   plot_margin = "s",
-  k_component = 1,
   ylim = c(-3, 3)
 )
 }
 \arguments{
-\item{X}{An array, dim=c(n_neurons, n_features_1, n_features_2, ...), where n_samples in the number of neurons and n_features_j is the number of the j-features (where the axis correspond to different parameters).}
+\item{X}{An array, dim=c(n_features_1, n_features_2, ..., n_neurons), where n_features_j is the number of the j-features (where the axis correspond to different parameters).}
 
 \item{regularizer}{The coefficient for the Ridge regularization. A non-negative number. Default to be 0, no regularization.}
 
@@ -27,16 +26,14 @@ dpca_fit_transform(
 
 \item{n_components}{The number of components required. Default=5.}
 
-\item{plot}{A bool parameter, whether to plot the components on margins. Default to be FALSE. Can handle neural population data with 3 or 4 task parameters.}
+\item{plot}{A bool parameter, whether to plot the First component on margins. Default to be FALSE. Can handle neural population data with 3 or 4 task parameters.}
 
 \item{plot_margin}{A string presenting the margin (task parameter) to plot the components. Default to be 's', stimulus.}
-
-\item{k_component}{The `k`th component to plot. Default to be 1.}
 
 \item{ylim}{The y axis limitation. Same as `plot()` function in R. Default to be c(-3,3).}
 }
 \value{
-A list mapping strings to matrix. Each element is a demixed pca transformed (decoding) 2D matrix. Can be reshaped to the origin dimension by using `dim()`function in R.
+A list mapping strings to matrix. Each element is a demixed pca transformed 2D matrix. Can be reshaped to the origin dimension by using `dim()`function in R.
 }
 \description{
 Fit the model with the neural population data (a high dimensional array X) and apply the dimensionality reduction on X.
