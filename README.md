@@ -1,6 +1,6 @@
 # demixpca ReadMe
 
-This repo contains code for demixed pca method - a modified dimensional reduction techinique to capture the dependencies
+This repo contains R code for demixed pca method - a modified dimensional reduction techinique to capture the dependencies
 of neurons on task parameters such as stimuli, rewards, and decisions, while still preserving
 the principal information from the original data.
 
@@ -13,7 +13,7 @@ devtools::install_github("jhgoblue/demixpca")
 ## Getting Started
 The package **rsvd** and **pracma** are also required while using the **demixpca**. 
 
-There is a simulated data included in the package, which you can load using the command:
+There is a simulated data included in the package, which you can generate using the command:
 ```
 # To generate a simulate data with 50 sample neurons, 200 time parameters and 4 stimulus parameters. 
 demixpca::dpca_data_sim(N=50, n_samples=10, pars_lst = c(200, 4), save = FALSE)
