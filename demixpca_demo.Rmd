@@ -1,0 +1,137 @@
+---
+title: "demixpca R package Using Instruction"
+author: "Jinhuan Ke, Nianlin Chen, Zequn Chen"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+### Package Introduction
+
+### Install the Package
+
+```{r library, message=FALSE, warning=FALSE, include=TRUE}
+library(devtools)
+devtools::install_github("jhgoblue/demixpca")
+library(demixpca)
+```
+### Use the demixpca Package
+
+The `demixpca` package contains a data simulation function `dpca_data_sim()` for user to simulate data to be used.
+Also, the `plot=TRUE` and `plot_margin` allows user to plot the demixed principle components on certain task parameter.
+We here firstly simulate an array with shape (200, 4, 50) which means 50 sample neurons, 200 time parameters and 4 stimulus parameters. (Consistent with `label="ts"`).
+And plot the first demixed principle component on the stimulus task parameter margin.
+```{r warning=FALSE}
+R = demixpca::dpca_data_sim(N=50, n_samples=10, pars_lst = c(200, 4), save = FALSE)
+res = demixpca::dpca_fit_transform(R, label = 'ts', plot=TRUE, plot_margin = 't')
+res = demixpca::dpca_fit_transform(R, label = 'ts', plot=TRUE, plot_margin = 's')
+res = demixpca::dpca_fit_transform(R, label = 'ts', plot=TRUE, plot_margin = 'mix')
+
+
+
+res = demixpca::dpca_fit_transform(R, label = 'ts', plot=TRUE, plot_margin = 't', regularizer = 0.01)
+res = demixpca::dpca_fit_transform(R, label = 'ts', plot=TRUE, plot_margin = 's', regularizer = 0.01)
+```
+
+Here is another example.
+We simulate an array with shape (3, 200, 4, 50) which means 50 sample neurons, 3 decisions, 200 time points, and 4 stimulus. (Consistent with `label="dts"`).
+And plot the first demixed principle component on the decision task parameter margin.
+
+```{r warning=FALSE}
+R = demixpca::dpca_data_sim(pars_lst = c(3, 200, 4), save = FALSE)
+res = demixpca::dpca_fit_transform(R, label = 'dts', plot=TRUE, plot_margin = 't')
+res = demixpca::dpca_fit_transform(R, label = 'dts', plot=TRUE, plot_margin = 's')
+res = demixpca::dpca_fit_transform(R, label = 'dts', plot=TRUE, plot_margin = 'd')
+
+res = demixpca::dpca_fit_transform(R, label = 'dts', plot=TRUE, plot_margin = 't', regularizer = 0.01)
+res = demixpca::dpca_fit_transform(R, label = 'dts', plot=TRUE, plot_margin = 's', regularizer = 0.01)
+res = demixpca::dpca_fit_transform(R, label = 'dts', plot=TRUE, plot_margin = 'd', regularizer = 0.01)
+```
+
+
+```{r warning=FALSE}
+R = demixpca::dpca_data_sim(pars_lst = c(3, 200, 4), save = FALSE)
+res = demixpca::dpca_fit_transform(R, label = 'dts', plot=TRUE, plot_margin = 't', method = 'svd')
+res = demixpca::dpca_fit_transform(R, label = 'dts', plot=TRUE, plot_margin = 's', method = 'svd')
+res = demixpca::dpca_fit_transform(R, label = 'dts', plot=TRUE, plot_margin = 'd', method = 'svd')
+
+res = demixpca::dpca_fit_transform(R, label = 'dts', plot=TRUE, plot_margin = 't', regularizer = 0.01, method = 'svd')
+res = demixpca::dpca_fit_transform(R, label = 'dts', plot=TRUE, plot_margin = 's', regularizer = 0.01, method = 'svd')
+res = demixpca::dpca_fit_transform(R, label = 'dts', plot=TRUE, plot_margin = 'd', regularizer = 0.01, method = 'svd')
+```
+
+```{r warning=FALSE}
+R = demixpca::dpca_data_sim(pars_lst = c(3, 200, 4), save = FALSE)
+res = demixpca::dpca_fit_transform(R, label = 'dts', plot=TRUE, plot_margin = 't', method = 'qr')
+res = demixpca::dpca_fit_transform(R, label = 'dts', plot=TRUE, plot_margin = 's', method = 'qr')
+res = demixpca::dpca_fit_transform(R, label = 'dts', plot=TRUE, plot_margin = 'd', method = 'qr')
+
+res = demixpca::dpca_fit_transform(R, label = 'dts', plot=TRUE, plot_margin = 't', regularizer = 0.01, method = 'qr')
+res = demixpca::dpca_fit_transform(R, label = 'dts', plot=TRUE, plot_margin = 's', regularizer = 0.01, method = 'qr')
+res = demixpca::dpca_fit_transform(R, label = 'dts', plot=TRUE, plot_margin = 'd', regularizer = 0.01, method = 'qr')
+```
+
+
+
+We encourage user to try different dimension, regularization, decomposition method, and return the list of matrices to plot when analyzing higher dimension.
+
+
+```{r}
+
+R = demixpca::dpca_data_sim(N=800, pars_lst = c(2, 100, 3), save = FALSE)
+start_time <- Sys.time()
+res = demixpca::dpca_fit_transform(R, n_components=2, label = 'dts', method='rsvd')
+print(Sys.time() - start_time)
+
+start_time <- Sys.time()
+res = demixpca::dpca_fit_transform(R, n_components=2, label = 'dts', method='svd')
+print(Sys.time() - start_time)
+
+start_time <- Sys.time()
+res = demixpca::dpca_fit_transform(R, n_components=2, label = 'dts', method='qr')
+print(Sys.time() - start_time)
+
+```
+
+```{r}
+
+R = demixpca::dpca_data_sim(N=100, pars_lst = c(2, 100, 3), save = FALSE)
+start_time <- Sys.time()
+res = demixpca::dpca_fit_transform(R, n_components=2, label = 'dts', method='rsvd')
+print(Sys.time() - start_time)
+
+start_time <- Sys.time()
+res = demixpca::dpca_fit_transform(R, n_components=2, label = 'dts', method='svd')
+print(Sys.time() - start_time)
+
+start_time <- Sys.time()
+res = demixpca::dpca_fit_transform(R, n_components=2, label = 'dts', method='qr')
+print(Sys.time() - start_time)
+
+```
+
+```{r}
+
+R = demixpca::dpca_data_sim(N=100, pars_lst = c(4, 500, 6), save = FALSE)
+start_time <- Sys.time()
+res = demixpca::dpca_fit_transform(R, n_components=2, label = 'dts', method='rsvd')
+print(Sys.time() - start_time)
+
+start_time <- Sys.time()
+res = demixpca::dpca_fit_transform(R, n_components=2, label = 'dts', method='svd')
+print(Sys.time() - start_time)
+
+start_time <- Sys.time()
+res = demixpca::dpca_fit_transform(R, n_components=2, label = 'dts', method='qr')
+print(Sys.time() - start_time)
+
+```
+
+
+### Reference
+
+Demixed principal component analysis of neural population data   
+
+eLife 2016, https://elifesciences.org/content/5/e10989
+
