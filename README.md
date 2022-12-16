@@ -29,7 +29,8 @@ Use **help()** to check detailed description and usage for functions built in **
 ```
 help('dpca_fit_transform')
 ```
-Demo implementation can refer to **demixpca_demo.Rmd** file.
+Demo implementation can refer to **demixpca_demo.Rmd** file.  
+Functions mainly used are: `dpca_data_sim()`, `dpca_fit_transform()`.
 ## Reference
 
 Kobak, D., Brendel, W., Constantinidis, C., Feierstein, C. E., Kepecs, A., Mainen, Z. F., Qi, X. L., Romo, R., Uchida, N., & Machens, C. K. (2016). Demixed principal component analysis of neural population data. eLife, 5, e10989. https://doi.org/10.7554/eLife.10989  
