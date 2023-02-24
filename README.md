@@ -1,5 +1,7 @@
 # demixpca ReadMe
 
+Authors: Jinhuan Ke, Nianlin Chen, Zequn Chen
+
 This repo contains R code for demixed pca method - a modified dimensional reduction techinique to capture the dependencies
 of neurons on task parameters such as stimuli, rewards, and decisions, while still preserving
 the principal information from the original data.
